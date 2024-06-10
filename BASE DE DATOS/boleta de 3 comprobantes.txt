@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprobantes</title>
+    <style>
+        @page {
+            size: A4;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 10px;
+        }
+
+        .red-section {
+            color: red; /* Cambia el color del texto a rojo */
+        }
+
+        .blue-section {
+            color: blue; /* Cambia el color del texto a azul */
+        }
+
+        .container {
+            border: 2px solid #0000FF;
+            border-radius: 10px;
+            padding: 5px;
+            margin-top: 10px; /* Ajusta el margen superior según tus necesidades */
+        }
+
+        .container2 {
+            border: 2px solid #FF0000;
+            border-radius: 10px;
+            padding: 5px;
+            margin-top: 10px; /* Ajusta el margen superior según tus necesidades */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 5px; /* Puedes ajustar este valor según tus preferencias */
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 2px solid #000;
+            border-radius: 10px;
+        }
+
+        .column-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .marco {
+            border: 2px solid #0000FF;
+            border-radius: 10px;
+            padding: 3px;
+            margin-bottom: 3px;
+            width: calc(50% - 20px); /* 50% del ancho con el espacio entre columnas */
+        }
+
+        .marco2 {
+            border: 2px solid #000;
+            border-radius: 5px;
+            padding: 3px; /* Reducir el espacio superior e inferior */
+            margin-bottom: 3px;
+        }
+
+        .marco3 {
+            border: 2px solid #FF0000;
+            border-radius: 5px;
+            padding: 3px; /* Reducir el espacio superior e inferior */
+            margin-bottom: 3px;
+        }
+
+        .marco4 {
+            border: 2px solid #FF0000;
+            border-radius: 5px;
+            padding: 3px; /* Reducir el espacio superior e inferior */
+            margin-bottom: 3px;
+        }
+        .column-container p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blue-section">
+    <div class="container">
+        <header>
+            <table>
+                <tr>
+                    <td><img src="../img/sallelogo.png" alt="La Salle Logo" width="100px" height="60px"></td>
+                    <td>
+                        <h3 style="text-align: center; font-size: 12px;">INSTITUTO DE EDUCACIÓN SUPERIOR TECNOLÓGICO PÚBLICO "LA SALLE"</h3>
+                        <h3 style="text-align: center;">AV.Los Incas s/n Telf.201061 - URUBAMBA</h3>
+                        <h3 style="text-align: center;"> RUC. NO20189908220</h3>
+                    </td>
+                    <td class="marco">NRO:&nbsp;{{ $comprobante->Comprobacion }}</td>
+                </tr>
+                <tr>
+                    <td class="marco">
+                        <div style="display: block;">AÑO/DÍA/MES</div>
+                        <div style="display: block;">{{ $comprobante->fecha }}</div>
+                    </td>
+                    <td>
+                        <h2 style="text-align: center;">COMPROBANTE DE INGRESOS</h2>
+                    </td>
+                    <td class="marco">S/.{{ $comprobante->monto}}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="marco">RECIBÍ DE:&nbsp;{{ $comprobante->dni }}</td>
+                    <td class="marco">{{ $comprobante->nombre }} , {{ $comprobante->apellido }}</td>
+                </tr>
+                <tr>
+                    <td class="marco">ÁREA: {{ $comprobante->nombre_area }}</td>
+                    <td class="marco">CARRERA PROF: {{ $comprobante->programa }}</td>
+                    <td class="marco">CICLO/SEM: {{ $comprobante->semestre }}</td>
+                </tr>
+                <tr>
+                    <td class="marco">LA SUMA DE:&nbsp;{{ $comprobante->monto }}&nbsp;SOLES.</td>
+                </tr>
+            </table>
+        </header>
+        <div>
+            <table>
+                <tr>
+                    <td>POR CONCEPTO DE: {{$comprobante->nombre_rubro}}</td>
+                </tr>
+            </table>
+            <p style="text-align: center;">_____________________</p>
+            <p style="text-align: center;">TESORERIA</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <table>
+                <tr>
+                    <td><img src="../img/sallelogo.png" alt="La Salle Logo" width="100px" height="60px"></td>
+                    <td>
+                        <h3 style="text-align: center; font-size: 12px;">INSTITUTO DE EDUCACIÓN SUPERIOR TECNOLÓGICO PÚBLICO "LA SALLE"</h3>
+                        <h3 style="text-align: center;">AV.Los Incas s/n Telf.201061 - URUBAMBA</h3>
+                        <h3 style="text-align: center;"> RUC. NO20189908220</h3>
+                    </td>
+                    <td class="marco">NRO:&nbsp;{{ $comprobante->Comprobacion }}</td>
+                </tr>
+                <tr>
+                    <td class="marco">
+                        <div style="display: block;">AÑO/DÍA/MES</div>
+                        <div style="display: block;">{{ $comprobante->fecha }}</div>
+                    </td>
+                    <td>
+                        <h2 style="text-align: center;">COMPROBANTE DE INGRESOS</h2>
+                    </td>
+                    <td class="marco">S/.{{ $comprobante->monto}}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="marco">RECIBÍ DE:&nbsp;{{ $comprobante->dni }}</td>
+                    <td class="marco">{{ $comprobante->nombre }} , {{ $comprobante->apellido }}</td>
+                </tr>
+                <tr>
+                    <td class="marco">ÁREA: {{ $comprobante->nombre_area }}</td>
+                    <td class="marco">CARRERA PROF: {{ $comprobante->programa }}</td>
+                    <td class="marco">CICLO/SEM: {{ $comprobante->semestre }}</td>
+                </tr>
+                <tr>
+                    <td class="marco">LA SUMA DE:&nbsp;{{ $comprobante->monto }}&nbsp;SOLES.</td>
+                </tr>
+            </table>
+        </header>
+        <div>
+            <table>
+                <tr>
+                    <td>POR CONCEPTO DE: {{$comprobante->nombre_rubro}}</td>
+                </tr>
+            </table>
+            <p style="text-align: center;">_____________________</p>
+            <p style="text-align: center;">TESORERIA</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="red-section">
+    <div class="container2">
+        <header>
+            <table>
+                <tr>
+                    <td><img src="../img/sallelogo.png" alt="La Salle Logo" width="100px" height="60px"></td>
+                    <td>
+                        <h3 style="text-align: center; font-size: 12px;">INSTITUTO DE EDUCACIÓN SUPERIOR TECNOLÓGICO PÚBLICO "LA SALLE"</h3>
+                        <h3 style="text-align: center;">AV.Los Incas s/n Telf.201061 - URUBAMBA</h3>
+                        <h3 style="text-align: center;"> RUC. NO20189908220</h3>
+                    </td>
+                    <td class="marco3">NRO:&nbsp;{{ $comprobante->Comprobacion }}</td>
+                </tr>
+                <tr>
+                    <td class="marco4">
+                        <div style="display: block;">AÑO/DÍA/MES</div>
+                        <div style="display: block;">{{ $comprobante->fecha }}</div>
+                    </td>
+                    <td>
+                        <h2 style="text-align: center;">COMPROBANTE DE INGRESOS</h2>
+                    </td>
+                    <td class="marco4">S/.{{ $comprobante->monto}}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="marco4">RECIBÍ DE:&nbsp;{{ $comprobante->dni }}</td>
+                    <td class="marco4">{{ $comprobante->nombre }} , {{ $comprobante->apellido }}</td>
+                </tr>
+                <tr>
+                    <td class="marco4">ÁREA: {{ $comprobante->nombre_area }}</td>
+                    <td class="marco4">CARRERA PROF: {{ $comprobante->programa }}</td>
+                    <td class="marco4">CICLO/SEM: {{ $comprobante->semestre }}</td>
+                </tr>
+                <tr>
+                    <td class="marco4">LA SUMA DE:&nbsp;{{ $comprobante->monto }}&nbsp;SOLES.</td>
+                </tr>
+            </table>
+        </header>
+        <div>
+            <table>
+                <tr>
+                    <td>POR CONCEPTO DE: {{$comprobante->nombre_rubro}}</td>
+                </tr>
+            </table>
+            <p style="text-align: center;">_____________________</p>
+            <p style="text-align: center;">TESORERIA</p>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
